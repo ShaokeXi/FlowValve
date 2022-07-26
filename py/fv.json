@@ -1,0 +1,28 @@
+{
+    "proj_dir": "/home/haers/repo/FlowValve",
+    "app_dir": "flowvalve",
+    "p4_bin_dir": "/home/haers/repo/nfp-sdk-6.1.0-preview/p4/bin",
+    "code_dir": "code",
+    "benchmark_dir": "benchmark",
+    "figure_dir": "figures",
+    "firmware_dir": "out",
+    "remote_benchmark_dir": "/root/repo/nfp_repo/",
+    "remote_firmware_dir": "firmware",
+    "remote_config_dir": "config",
+    "testcase": "app.json",
+    "testcase_dump": "test.json",
+    "test_config_file": "config.json",
+    "test_config_prog": "config.py",
+    "nic_counter_log": "counter.log",
+    "make_file": "Makefile-nfp4build",
+    "apps": {
+        "flowvalve": {
+            "p4": "flowvalve.p4",
+            "sandbox_c": "flowvalve.c",
+            "firmware": "flowvalve.nffw",
+            "pif_design": "pif_design.json",
+            "remote_firmware": "flowvalve_tc.nffw",
+            "remote_pif_design": "flowvalve_tc.json"
+        }
+    }
+}

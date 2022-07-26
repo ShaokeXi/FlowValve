@@ -1,0 +1,162 @@
+{
+    "tables": {
+        "tbl_flow": {
+            "rules": [
+                {
+                    "action": {
+                        "data": {
+                            "snum": {
+                                "value": "2"
+                            }, 
+                            "sub": {
+                                "value": "0x03010000"
+                            }, 
+                            "idx": {
+                                "value": "0x00020000"
+                            }, 
+                            "inum": {
+                                "value": "2"
+                            }
+                        }, 
+                        "type": "act_flow"
+                    }, 
+                    "name": "flow5001", 
+                    "match": {
+                        "udp.dstPort": {
+                            "value": "5001"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "snum": {
+                                "value": "2"
+                            }, 
+                            "sub": {
+                                "value": "0x02010000"
+                            }, 
+                            "idx": {
+                                "value": "0x00030000"
+                            }, 
+                            "inum": {
+                                "value": "2"
+                            }
+                        }, 
+                        "type": "act_flow"
+                    }, 
+                    "name": "flow5002", 
+                    "match": {
+                        "udp.dstPort": {
+                            "value": "5002"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "snum": {
+                                "value": "1"
+                            }, 
+                            "sub": {
+                                "value": "0x00000000"
+                            }, 
+                            "idx": {
+                                "value": "0x01000000"
+                            }, 
+                            "inum": {
+                                "value": "1"
+                            }
+                        }, 
+                        "type": "act_flow"
+                    }, 
+                    "name": "flow5003", 
+                    "match": {
+                        "udp.dstPort": {
+                            "value": "5003"
+                        }
+                    }
+                }
+            ]
+        }, 
+        "tbl_forward": {
+            "rules": [
+                {
+                    "action": {
+                        "data": {
+                            "port": {
+                                "value": "p3"
+                            }
+                        }, 
+                        "type": "act_send_to_port"
+                    }, 
+                    "name": "p1_to_p3", 
+                    "match": {
+                        "standard_metadata.ingress_port": {
+                            "value": "p1"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "data": {
+                            "port": {
+                                "value": "p1"
+                            }
+                        }, 
+                        "type": "act_send_to_port"
+                    }, 
+                    "name": "p3_to_p1", 
+                    "match": {
+                        "standard_metadata.ingress_port": {
+                            "value": "p3"
+                        }
+                    }
+                }
+            ], 
+            "default_rule": {
+                "action": {
+                    "type": "act_drop"
+                }, 
+                "name": "default"
+            }
+        }, 
+        "tbl_egress_meter": {}, 
+        "tbl_reg_egress": {
+            "default_rule": {
+                "action": {
+                    "type": "act_reg_egress"
+                }, 
+                "name": "default"
+            }
+        }
+    }, 
+    "meters": {
+        "configs": [
+            {
+                "count": 1, 
+                "index": 0, 
+                "name": "meter0", 
+                "burst_k": 100000, 
+                "meter": "vf_meters", 
+                "rate_k": 6000.0
+            }, 
+            {
+                "count": 1, 
+                "index": 1, 
+                "name": "meter1", 
+                "burst_k": 50000, 
+                "meter": "vf_meters", 
+                "rate_k": 20000.0
+            }, 
+            {
+                "count": 1, 
+                "index": 2, 
+                "name": "meter2", 
+                "burst_k": 10000, 
+                "meter": "vf_meters", 
+                "rate_k": 15000.0
+            }
+        ]
+    }
+}
