@@ -5,7 +5,7 @@ import time
 import paramiko
 import zipfile
 
-from nic_util import ssh_open, ssh_runcmd, scp, roothost, get_json
+from fv_util import ssh_open, ssh_runcmd, scp, roothost, get_json
 import numpy as np
 import pandas as pd
 import seaborn as sns

@@ -2,7 +2,7 @@
 import os
 import sys
 import subprocess
-import nic_util as nutil
+import fv_util as nutil
 
 def nic_app_build(app, p4_bin_dir, p4, sandbox_c, out_nffw):
     bat_file = '%s%s.bat' % (p4_bin_dir, app)

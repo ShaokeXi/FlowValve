@@ -5,7 +5,7 @@ import zipfile
 import seaborn as sns
 import pandas as pd
 import matplotlib.pyplot as plt
-import nic_util as nutil
+import fv_util as nutil
 from fv_cfg import generate_nfp_rtsym
 
 # directories on remote machine
